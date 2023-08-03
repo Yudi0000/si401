@@ -17,12 +17,26 @@
 }
 
 #tetris-logo{
-    position: fixed;
+    position: fixed, static;
+}
+
+.playbutton{
+    padding: 25px;
+    font-size: 40px;
+    position: relative;
+    top: 290px;
+    color: rgb(255, 255, 255);
+    border-radius: 60px;
+    background-image: linear-gradient(orange, yellow);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .button-login{
     padding: 10px;
     font-size: 16px;
+    position: relative;
+    left: 1570px;
     border-radius: 40px;
     background-color: whitesmoke;
     border: none;
@@ -32,10 +46,11 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: url("https://assets-prd.ignimgs.com/2023/03/20/tetrisreview-blogroll-1679329409961.jpg?width=1920");
 }
 
 header {
-    height: 50px; /* replace with actual header height */
+    height: 90px; /* replace with actual header height */
 }
 
 main {
