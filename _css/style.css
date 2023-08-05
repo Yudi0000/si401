@@ -7,6 +7,14 @@
     text-align: center;
 }
 
+.wrapper {
+    display: flex;
+  }
+  
+.wrapper > div {
+    flex: 1;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -34,7 +42,8 @@ body {
 .round{
     width: 50px;
     height: 50px;
-    border-radius: 50%; /* Torna o botão redondo */
+    margin: 0px;
+    border-radius: 100%; /* Torna o botão redondo */
     border: none;
     cursor: pointer;
     outline: none;
