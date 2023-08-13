@@ -1,0 +1,195 @@
+html{
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+    color: black;
+    height: 100%;
+}
+
+body{
+    height: fit-content;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.margin-medium{
+    margin: 30px;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.padding-strong{
+    padding: 30px;
+}
+
+.no-top-padding{
+    padding-top: 0px;
+}
+
+.no-bottom-margin{
+    margin-bottom: 0px;
+}
+
+.link{
+    margin: 10px;
+    text-decoration: none;
+    background-color: #969696;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.clean-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.link:hover{
+    color: #727272;
+}
+
+.bg-strong{
+    background-color: #464646;
+}
+
+.bg-medium{
+    background-color: #aaaaaa;
+}
+
+.bg-weak{
+    background-color: white;
+}
+
+.color-strong{
+    color: #ffffff;
+}
+
+.color-medium{
+    background-color: #aaaaaa;
+}
+
+.color-weak{
+    background-color: #464646;
+}
+
+.no-margin{
+    margin: 0px;
+}
+
+.margin-strong{
+    margin: 30px;
+}
+
+.margin-medium{
+    margin: 20px;
+}
+
+.margin-weak{
+    margin: 10px;
+}
+
+.no-top-margin{
+    margin-top: 0px;
+}
+
+.right-left-margin-10{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.right-left-padding-5{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.text{
+    text-align: justify;
+    text-decoration: none;
+    flex: 1;
+}
+
+.title-strong{
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.title-medium{
+    font-size: 24px;
+}
+
+.title-weak{
+    font-size: 18px;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+  
+section {
+    flex: 1;
+    display: block;
+}
+
+.image{
+    min-width: fit-content;
+    min-height: fit-content;
+}
+
+.white-text{
+    color: white;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+label, input{
+    margin: 10px;
+}
+
+input{
+    border-radius: 5px;
+    border: 1px solid #969696;
+    padding: 5px;
+    min-width: 200px;
+}
+
+#game, #win{
+    display: none;
+}
+
+.cell{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
