@@ -12,19 +12,20 @@
         <p class="right-left-padding-5 margin-strong white-text title-strong"><a href="index.html" class="clean-link">Tic tac toe</a></p>
     </header>
 
-    <section id="gameHolder">
+    <div id="gameHolder">
         <section class="flex-container no-top-margin bg-medium right-left-margin-10 text-container" id="askName">
+            <h2 class="no-top-margin no-bottom-margin title-strong padding-strong">Enter the player infos to play!</h2>
             <form>
-                <label for="player1" class="no-top-margin no-bottom-margin title-strong padding-strong">First player name</label>
+                <label class="no-top-margin no-bottom-margin title-strong padding-strong">First player name</label>
                 <input type="text" name="player1" id="player1Name" placeholder="Enter first player name">
-                <label for="player2" class="no-top-margin no-bottom-margin title-strong padding-strong">Second player name</label>
+                <label class="no-top-margin no-bottom-margin title-strong padding-strong">Second player name</label>
                 <input type="text" name="player2" id="player2Name" placeholder="Enter second player name">
                 <input type="submit" value="Jogar" class="margin-medium title-medium">
             </form>    
         </section>
 
         <section class="text-center flex-container no-top-margin bg-medium right-left-margin-10 text-container" id="game">
-            <p id="playerName" class="no-top-margin no-bottom-margin title-strong padding-strong"></p>
+            <h2 id="playerName" class="no-top-margin no-bottom-margin title-strong padding-strong">&nbsp;</h2>
             <ul class="no-top-padding padding-strong">
                 <li>
                     <button class="cell" onclick="activateCell(this)">&nbsp;</button>
@@ -45,9 +46,9 @@
         </section>
 
         <section class="text-center flex-container no-top-margin bg-medium right-left-margin-10 text-container" id="win">
-            <p id="whoWon" class="no-top-margin no-bottom-margin title-strong padding-strong"></p>
+            <h2 id="whoWon" class="no-top-margin no-bottom-margin title-strong padding-strong">&nbsp;</h2>
             <button id="playAgain" class="play-again-btn" onclick="playAgain()">Play again!</button>
         </section>
-    </section>
+    </div>
 </body>
 </html>
