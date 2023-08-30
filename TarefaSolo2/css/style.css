@@ -8,6 +8,8 @@ html{
 
 body{
     height: 75%;
+    position: relative;
+    min-height: 100vh;
 }
 
 .text-center{
@@ -32,6 +34,9 @@ body{
     background-color: #969696;
     padding: 15px;
     border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .link:hover{
@@ -70,6 +75,10 @@ body{
     margin: 30px;
 }
 
+.margin-strong-bottom{
+    margin-bottom: 30px;
+}
+
 .margin-medium{
     margin: 20px;
 }
@@ -82,6 +91,11 @@ body{
     margin-top: 0px;
 }
 
+
+.no-bottom-margin{
+    margin-bottom: 0px;
+}
+
 .right-left-margin-10{
     margin-right: 10%;
     margin-left: 10%;
@@ -92,8 +106,11 @@ body{
     padding-left: 5%;
 }
 
-.text{
+.text-justify{
     text-align: justify;
+}
+
+.text{
     text-decoration: none;
     flex: 1;
 }
@@ -130,4 +147,26 @@ section {
 .image{
     min-width: fit-content;
     min-height: fit-content;
+    width: 500px;
+    height: 400px;
+}
+
+li{
+    margin: 10px;
+    list-style: none;
+}
+
+iframe{
+    margin: 30px;
+}
+
+.index{
+    display: flex;
+    flex: 1;
+    margin-left: 80px;
+}
+
+.pages{
+    display: flex;
+    flex: 1;
 }
