@@ -7,43 +7,70 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
-			<!-- HEADER -->
+			<!-- HEADER LOGIN -->
 				<div id="page-container">
-					<div class="hero_area">
+					<div class="hero_area_curta">
 						<!-- HEADER -->
 						<a class="logo" href="index.html"><img class="logo" src="imagens/logounicamp.png" alt="Unicamp Maior e Melhor"></a>
 							<header class="header_section">
 								<nav class="custom_nav-container ">
 									<div class="navbar-itens">
 										<ul class="navbar-nav">
-											<li class="nav-item active">
-												<a class="nav-link" href="login.html">LOGIN</a>
+                                            <li class="nav-item active">
+												<a class="nav-link" href="index.html">Sair <img class="img-perfil" src="imagens/logout_icon.png"></a>
+											</li>
+                                            <li class="nav-item active">
+												<a class="nav-link" href="perfil.html">Perfil <img class="img-perfil" src="imagens/perfil.png"></a>
 											</li>
 										</ul>
 									</div>
 								</nav>
 							</header>
-							<a href="cadastro.html"><button class="glow-on-hover" type="button" id="cadastrar">Clique aqui para se Cadastrar</button></a>
 					</div>
+						<!-- HEADER MENU -->
+						<div class="hero_area_curta">
+							<header class="header_section">
+								<nav class="custom_nav-container-left">
+									<div class="navbar-itens">
+										<ul class="navbar-nav-left">
+                                            <li class="nav-item ">
+												<a class="nav-link " href="menu.html">Menu</a>
+											</li>
+											<li class="nav-item ">
+												<a class="nav-link " href="menu.html">Jogar</a>
+											</li>   
+                                            <li class="nav-item ">
+												<a class="nav-link" href="rankingGlobal.html">Ranking Global</a>
+											</li>
+										</ul>
+									</div>
+								</nav>
+							</header>
+					</div>
+			    </div>
+			<!-- FIM HEADERS -->
+			<!-- CONTEUDO -->
+			<div class="tetris_container">
+					<section class="tetris_content">
+						<ul class="tetris-list">
+							<div class="container-ranking">
+								<h1>Ranking das Partidas tendo:  nome do jogador, pontuação obtida, nível atingido e tempo de duração da partida.</h1>
+							</div>
+						</ul>
+						<ul class="tetris-list">
+							<div class="container-jogo">
+								<h1>JOGO NORMAL</h1>
+							</div>
+						</ul>
+						<ul class="tetris-list">
+							<div class="container-informacoes">
+								<p>Tempo da partida, pontuação, número de linhas eliminadas e nível de dificuldade</p>
+							</div>
+						</ul>
+					</section>
 			</div>
-			<!-- FIM HEADER -->
-			<!-- BODY Com descricao-->
-			<section class="div_livros">
-				<div class="container_bibliografico">
-					<div class="livros_list">
-					  	<div class="box container-block">
-							<img class="img-box" src="imagens/Tetris_Board_Mirrowed.png">
-							<p class="box-descricao">NOVO MODO DE JOGAR!!! MIRROR TETRIS!</p>					
-							<p class="box-descricao">Ao longo da partida e de maneira aleatória podem surgir peças especiais que, quando compõem uma linha eliminada, provocam o espelhamento do tabuleiro.</p>
-					  	</div>
-					</div>
-					<div class="livros_list">
-						<div class="box container-block">
-						</div>
-				  </div>
-				</section>
-				<!-- FIM Descricao-->
-				<!-- FOOTER -->
+			<!-- FIM CONTEUDO-->
+            <!-- FOOTER -->
 				<div class="footer_container">
 					<section class="footer_content ">
 						<ul class="footer-list">
