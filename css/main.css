@@ -17,16 +17,17 @@
         color: inherit;
     }
 
-    input[type=text]{
+
+    input[type=text], input[type=password], input[type=email],
+    input[type=number], input[type=tel], input[type=date] {
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
     }
 
-    input[type=password]{
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;   
     }
     
     th {
@@ -34,6 +35,9 @@
         background-clip: padding-box;
     }
 
+    button{
+        cursor: pointer;
+    }
 /*header*/
 
     .custom_nav-container .navbar-nav {
@@ -98,7 +102,6 @@
     .img-conta{
         width: 100px;
         height: 100px;
-        background-color: #000000;
         border-radius: 100%;
         margin: 10px;
     }
@@ -153,18 +156,18 @@
         top: 70%;
         transform: translate(-50%,-50%);
     }
-
-
-    
+      
 .glow-on-hover {
     border: none;
     outline: none;
     color: white;
-    background: #111;
+    font-weight: bolder;
+    font-size: 16px;
     cursor: pointer;
     position: relative;
     z-index: 0;
-    border-radius: 10px;
+    border-radius: 10px;   
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .glow-on-hover:before {
@@ -202,7 +205,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #859F51;
+    background: #fccf08;
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -237,12 +240,25 @@
         height: 100%;
         align-items: center;
     }
+
+    .box-descricao-title{
+        padding: 15px;
+        width: 50%;
+        align-items: center;
+        text-align: center;
+        float: right;
+        font-weight: bolder ;
+        padding: 0;
+        margin-top: 10px;
+    }
     
     .box-descricao{
         padding: 15px;
         width: 50%;
         align-items: center;
-        text-align: center;
+        text-indent: 25px;
+        text-align: justify;
+        text-overflow: ellipsis;
         float: right;
         padding: 0;
         margin-top: 10px;
@@ -263,6 +279,7 @@
     }
 
     .container-tetris{
+        padding-top: 100px;
         width: 100%;
         min-height: 800px;
         background-image: url(../imagens/gameboy-background.jpg);
@@ -300,6 +317,7 @@
     }
 
     #ranking{
+        padding-top: 10px;
         width: 70%;
         height: 75% ;
         background-color: #859F51;
@@ -397,6 +415,7 @@
     
     .div_livros {
         text-align: center;
+        margin-bottom: 20px;
     }
 
     .div_livros .box {
@@ -417,9 +436,17 @@
         border-radius: 15px;
     }
 
+    .img-box{
+        width: 50% !important;
+    }
+
     .tabela-body{
         font-size: 30px;
-        margin: auto;
+        margin: auto auto;
+    }
+
+    .tabela-body td{
+        padding: 20px;
     }
 
 /* FOOTER*/
@@ -473,24 +500,42 @@
 
 /* Fim Footer*/
 
-    .container-login {
-            width: 100%;
-            height: 89vh;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background-color: #F7F7F7;   
+    .title-ranking{
+        text-align: center;
+        color: white;
     }
+
+    .container-login {
+        width: 100%;
+        height: 89vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #F7F7F7;   
+    }
+
+    .perfil{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+
+    .user-profile{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
     .box-perfil {
         width: 800px;
         height: 600px;
+        padding: 20px;
         background: white;
         border-radius: 15px;
         position: absolute;
         box-shadow: 1px 1px 6px 1px #cdcdcd;
 
     }
+
     .box-login {
         width: 700px;
         height: 400px;
@@ -501,12 +546,17 @@
 
     }
 
+    input:required:focus {
+        border: 2px solid red;
+        background-color: rgba(243, 123, 123, 0.514);
+        outline: none;
+    }
+
     .wrap-input {
         height: 70px;
         background-size: 100% 100%;
         position: relative;
         padding: 10px;
-
     }
     
     .input100 {
@@ -547,12 +597,13 @@
         font-weight: bold;
         text-align: center;
         width: 100%;
-        margin-top: 25px;
+        margin-top: 30px;
         position: absolute; 
         left: 50%;
         right: 50%;
         transform: translate(-50%,-50%)
     }   
+
     .login-button {
         font-size: 18px;
         border: none;
@@ -573,4 +624,90 @@
         color: #ffd502;
         box-shadow: inset 0 0 0 3px #FBE162;
     }
+
+    .login-button a{
+        font-size: large;
+        font-weight: bolder;
+    }
  
+    .container-cadastro {
+        width: 100%;
+        height: 120vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #F7F7F7;   
+    }
+
+    .box-cadastro {
+        width: 700px;
+        height: 800px;
+        background: white;
+        border-radius: 15px;
+        position: absolute;
+        box-shadow: 1px 1px 6px 1px #cdcdcd;
+
+    }
+
+    .cadastro-title {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        margin-top: 30px;
+        position: absolute; 
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%,-50%)
+    }   
+
+    #ranking::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+    
+    #ranking::-webkit-scrollbar
+    {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+    
+    #ranking::-webkit-scrollbar-thumb
+    {
+        background-color: #AAA;
+        background-image: -webkit-linear-gradient(90deg,
+                                                  rgba(0, 0, 0, .2) 25%,
+                                                  transparent 25%,
+                                                  transparent 50%,
+                                                  rgba(0, 0, 0, .2) 50%,
+                                                  rgba(0, 0, 0, .2) 75%,
+                                                  transparent 75%,
+                                                  transparent)
+    }
+
+    #ranking::-webkit-scrollbar-thumb:hover
+    {
+        background-color: #999;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+  
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
