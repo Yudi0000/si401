@@ -145,7 +145,6 @@
     
     #cadastrar{
         width: 200px;
-        height: 50px;
 
         position: absolute;
         left: 50%;
@@ -155,8 +154,6 @@
 
     #jogar{
         width: 200px;
-        height: 50px;
-
         position: absolute;
         right: 50%;
         left: 50%;
@@ -168,7 +165,10 @@
         border: none;
         outline: none;
         color: white;
+        text-decoration: none;
+        text-align: center;
         font-weight: bolder;
+        padding: 10px;
         font-size: 16px;
         cursor: pointer;
         position: relative;
@@ -230,7 +230,9 @@
         outline: none;
         color: white;
         font-weight: bolder;
+        text-align: center;
         font-size: 16px;
+        padding: 20px;
         cursor: pointer;
         position: relative;
         z-index: 0;
@@ -447,12 +449,15 @@
     }
 
     .container-jogo{
-        background-image: url(../imagens/fundotetris.svg);
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        opacity:70% ;
+        opacity: 70% ;
         width: 100%;
         height: 900px;
+        padding: 10px;
+    }
+
+    .img-jogo{
+        height: 90%;
+        margin-left: 50px ;
     }
 
     .container-ranking{
@@ -467,16 +472,13 @@
     .container-informacoes{
         width: 100%;
         min-height: 700px;
+        margin-left: 30px;
         position: relative;
-
     }
 
-    .prox-peca{
+    .prox-peca img{
         width: 140px;
         height: 140px;
-        background-image: url(../imagens/proxpeca.png);
-        background-repeat: no-repeat;
-        background-size: cover;
         border: solid 1px black;
     }
 
@@ -503,6 +505,7 @@
     }
 
     .info-game{
+        margin-left: 30px;
         position: relative;
         top:50%;
     }
@@ -575,7 +578,7 @@
     }
 
     .tetris-list{
-        display: flex;
+        display: inline-block;
         flex-direction: column;
         gap: 0.75rem;
         list-style: none;
@@ -728,7 +731,6 @@
     .container-login {
         width: 100%;
         min-height: 100vh;
-        padding: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -823,7 +825,8 @@
     .information{
         font-size: 18px;
         font-weight: bolder;
-        color: #343434;
+        color: #6b6b6b;
+
 
         border: none;
         border-radius: 15px;
@@ -870,12 +873,15 @@
 
     .login-button {
         font-size: 18px;
+        font-weight: bolder;
         border: none;
         border-radius: 15px;
         background: #FBE162;
         width: 80%;
-        height: 55px;
-
+        text-align: center; 
+        padding-top: 20px;
+        padding-bottom: 20px;
+        
         position: absolute; 
         left: 50%;
         top: 50%;
@@ -941,14 +947,8 @@
     #ranking::-webkit-scrollbar-thumb
     {
         background-color: #AAA;
-        background-image: -webkit-linear-gradient(90deg,
-                                                  rgba(0, 0, 0, .2) 25%,
-                                                  transparent 25%,
-                                                  transparent 50%,
-                                                  rgba(0, 0, 0, .2) 50%,
-                                                  rgba(0, 0, 0, .2) 75%,
-                                                  transparent 75%,
-                                                  transparent)
+        background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%, transparent 25%, transparent 50%,
+        rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .2) 75%, transparent 75%, transparent);
     }
 
     #ranking::-webkit-scrollbar-thumb:hover
