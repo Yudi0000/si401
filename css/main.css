@@ -227,6 +227,7 @@
       
     .glow-on-hover-jogar {
         border: none;
+        text-decoration: none;
         outline: none;
         color: white;
         font-weight: bolder;
@@ -863,6 +864,7 @@
     }   
 
     .login-button {
+        cursor: pointer;
         font-size: 18px;
         font-weight: bolder;
         border: none;
