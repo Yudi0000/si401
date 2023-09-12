@@ -21,7 +21,6 @@
     input[type=text], input[type=password], input[type=email],
     input[type=number], input[type=tel], input[type=date] {
         padding: 12px 20px;
-        margin: 8px 0;
         box-sizing: border-box;
     }
 
@@ -114,8 +113,6 @@
         background-image: url('../imagens/tetrisFundo.png');
         background-repeat:no-repeat;
         background-position: center;
-        position: relative;
-        background-size: 100% 100%;
     }
 
     .hero_area_curta {
@@ -151,71 +148,203 @@
         height: 50px;
 
         position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    #jogar{
+        width: 200px;
+        height: 50px;
+
+        position: absolute;
         right: 50%;
         left: 50%;
-        top: 70%;
+        top: 85%;
         transform: translate(-50%,-50%);
     }
       
-.glow-on-hover {
-    border: none;
-    outline: none;
-    color: white;
-    font-weight: bolder;
-    font-size: 16px;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;   
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
+    .glow-on-hover {
+        border: none;
+        outline: none;
+        color: white;
+        font-weight: bolder;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;   
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
 
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
+    .glow-on-hover:before {
+        content: '';
+        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+    }
 
-.glow-on-hover:active {
-    color: #000
-}
+    .glow-on-hover:active {
+        color: #000
+    }
 
-.glow-on-hover:active:after {
-    background: transparent;
-}
+    .glow-on-hover:active:after {
+        background: transparent;
+    }
 
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
+    .glow-on-hover:hover:before {
+        opacity: 1;
+    }
 
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #fccf08;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
+    .glow-on-hover:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fccf08;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
 
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-}
+    @keyframes glowing {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+    }
+
+      
+    .glow-on-hover-jogar {
+        border: none;
+        outline: none;
+        color: white;
+        font-weight: bolder;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;   
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    .glow-on-hover-jogar:before {
+        content: '';
+        background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 20s linear infinite;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        border-radius: 10px;
+    }
+
+    .glow-on-hover-jogar:active {
+        color: #000
+    }
+
+    .glow-on-hover-jogar:active:after {
+        background: transparent;
+    }
+
+    .glow-on-hover-jogar:hover:before {
+        opacity: 1;
+    }
+
+    .glow-on-hover-jogar:after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: red;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+    }
+
+    .container-menu{
+        width: 100%;
+        min-height:700px;
+        display: inline-block;
+        position:relative;
+        background-image: url('../imagens/gameboyback.png');
+        background-size: cover;
+
+        background-repeat:no-repeat;
+        background-position: center;
+    }
+
+
+    .menu-bemvindo{
+        margin: auto;
+        text-align: center;
+        
+    }
+
+    .menu-bemvindo h1{
+        font-size: 80px;
+        font-family: "GillSansMT";
+        color: white;
+        text-shadow: 2px 2px #ca0101;
+
+    }
+
+    .menu-bemvindo p{
+        font-size: 80px;
+        color: white;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #000000;
+    }
+
+
+    .titulo_body{
+        font-size: 45px;
+        text-align: center;
+        align-items: center;
+        font-family: "GillSansMT";
+
+    }
+    .body_texto{
+        font-size: 25px;
+        text-align: justify;
+        text-indent: 4ch;
+        line-height: 35px;
+        font-family: "GillSansMT";
+
+    }
+
+    .imagem-inblock{
+        border: solid 1px;
+        width: 650px;
+        height: 400px;
+        font-family: "GillSansMT";
+
+    }
+
+    .bloco_anuncio{
+        position: relative;
+        width: 50%;
+        padding: 25px;
+        display: flex;
+
+    }
 
 /*Fim header*/
 
@@ -278,6 +407,36 @@
         min-height:700px ;
     }
 
+   
+
+    .btn-wrap{
+        position:relative;
+    }
+    
+    .btn-wrap button{
+    position:absolute;
+    z-index:1;
+    top:50%;
+    left:50%;
+    width:160px;               
+    height:30px;              
+    padding:0;
+    margin:-15px 0 0 -80px;   /* margem à esquerda e ao topo metade da medida do botão */
+    border:0 none;
+    }
+    .thumbnail-wrapper {
+        display:inline-block;
+        position:relative;
+    }
+    .thumbnail-wrapper button {
+        position:absolute;
+        top:50%;
+        left:50%;
+        -webkit-transform:translate3d(-50%, -50%, 0);
+        -moz-transform:translate3d(-50%, -50%, 0);
+        transform:translate3d(-50%, -50%, 0);
+    }
+
     .container-tetris{
         padding-top: 100px;
         width: 100%;
@@ -288,36 +447,79 @@
     }
 
     .container-jogo{
-        background-color: #859F51;
+        background-image: url(../imagens/fundotetris.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
         opacity:70% ;
         width: 100%;
-        min-height: 800px;
+        height: 900px;
     }
 
     .container-ranking{
-        background-color: blue;
+        background-color: rgb(0, 0, 0);
+        opacity:0.8 ;
         width: 100%;
         min-height: 700px;
+        overflow:scroll;
+
     }
 
     .container-informacoes{
-        background-color: yellow;
         width: 100%;
         min-height: 700px;
+        position: relative;
+
+    }
+
+    .prox-peca{
+        width: 140px;
+        height: 140px;
+        background-image: url(../imagens/proxpeca.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: solid 1px black;
+    }
+
+    .tempo-de-partida{
+        width: 100%;
+        height: 100px;
+        position: relative;
+    }
+    .pontuacao{
+        width: 100%;
+        height: 100px;
+        position: relative;
+    }
+
+    .linhas-eliminadas{
+        width: 100%;
+        height: 100px;
+        position: relative;
+    }
+
+    .nivel-dificuldade{
+        width: 100%;
+        height: 100px;
+    }
+
+    .info-game{
+        position: relative;
+        top:50%;
     }
 
     #ranking-gameboy{
         width: 80%;
         height: 700px;
-        background-color: #918E94;
+        background-color: #949394;
         position: relative;
         margin: auto;
         border-radius: 0 0 140px 0;
-        border: solid 1px black;
+        border: solid 1px rgb(141, 140, 140);
+        box-shadow: 20px 20px rgba(0,0,0,.15);
+
     }
 
     #ranking{
-        padding-top: 10px;
         width: 70%;
         height: 75% ;
         background-color: #859F51;
@@ -437,13 +639,31 @@
     }
 
     .img-box{
-        width: 50% !important;
+        width: 45% !important;
+    }
+
+
+    .img-menu{
+        width: 33.33%;
+        height: auto;
+        float: left;
     }
 
     .tabela-body{
         font-size: 30px;
         margin: auto auto;
     }
+
+    .tabela-rank-pessoal{
+        font-size: 30px;
+        margin: auto auto;
+        color:white;
+    }
+
+    .tabela-rank-pessoal td{
+        padding: 20px;
+    }
+
 
     .tabela-body td{
         padding: 20px;
@@ -507,33 +727,48 @@
 
     .container-login {
         width: 100%;
-        height: 89vh;
+        min-height: 100vh;
+        padding: auto;
         display: flex;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
         background-color: #F7F7F7;   
     }
 
-    .perfil{
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-    }
-
     .user-profile{
-        text-align: center;
         margin-bottom: 20px;
     }
 
     .box-perfil {
         width: 800px;
-        height: 600px;
+        height: 800px;
         padding: 20px;
         background: white;
         border-radius: 15px;
         position: absolute;
         box-shadow: 1px 1px 6px 1px #cdcdcd;
+        margin: 10px;
+        position: relative;
+    }
 
+    .image { 
+        position: relative;
+        width: 100%;
+        margin-left: 70px;
+     }
+     .nome-perfil { 
+        position: absolute; 
+        top: 20px; 
+        left: 140px; 
+        width: 50%; 
+     }
+     
+     .nome-perfil span {
+        font-size: 28px;
+     }
+    
+    .box-perfil h1{
+        text-align: center;
     }
 
     .box-login {
@@ -557,6 +792,8 @@
         background-size: 100% 100%;
         position: relative;
         padding: 10px;
+        vertical-align: middle;
+
     }
     
     .input100 {
@@ -570,8 +807,35 @@
 
         position: absolute; 
         left: 50%;
-        right: 50%;
-        
+        top: 50%;
+        transform: translate(-50%,-50%);
+
+
+    }
+
+    .wrap-information{
+        height: 70px;
+        background-size: 100% 100%;
+        position: relative;
+        padding: 10px;
+    }
+
+    .information{
+        font-size: 18px;
+        font-weight: bolder;
+        color: #343434;
+
+        border: none;
+        border-radius: 15px;
+        background: #D9D9D9;
+        width: 80%;
+        height: 55px;
+
+        position: absolute; 
+        left: 50%;
+        top: 50%;
+        padding: 16px 20px;
+        box-sizing: border-box;
         transform: translate(-50%,-50%);
     }
 
@@ -614,7 +878,7 @@
 
         position: absolute; 
         left: 50%;
-        right: 50%;
+        top: 50%;
         
         transform: translate(-50%,-50%)
     }
@@ -642,7 +906,7 @@
 
     .box-cadastro {
         width: 700px;
-        height: 800px;
+        min-height: 850px;
         background: white;
         border-radius: 15px;
         position: absolute;
