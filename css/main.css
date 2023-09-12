@@ -311,8 +311,6 @@
     .menu-bemvindo p{
         font-size: 80px;
         color: white;
-        -webkit-text-stroke-width: 2px;
-        -webkit-text-stroke-color: #000000;
     }
 
 
@@ -409,8 +407,6 @@
         min-height:700px ;
     }
 
-   
-
     .btn-wrap{
         position:relative;
     }
@@ -425,18 +421,6 @@
     padding:0;
     margin:-15px 0 0 -80px;   /* margem à esquerda e ao topo metade da medida do botão */
     border:0 none;
-    }
-    .thumbnail-wrapper {
-        display:inline-block;
-        position:relative;
-    }
-    .thumbnail-wrapper button {
-        position:absolute;
-        top:50%;
-        left:50%;
-        -webkit-transform:translate3d(-50%, -50%, 0);
-        -moz-transform:translate3d(-50%, -50%, 0);
-        transform:translate3d(-50%, -50%, 0);
     }
 
     .container-tetris{
@@ -743,7 +727,7 @@
 
     .box-perfil {
         width: 800px;
-        height: 800px;
+        height: 900px;
         padding: 20px;
         background: white;
         border-radius: 15px;
@@ -752,6 +736,8 @@
         margin: 10px;
         position: relative;
     }
+
+
 
     .image { 
         position: relative;
@@ -781,6 +767,11 @@
         position: absolute;
         box-shadow: 1px 1px 6px 1px #cdcdcd;
 
+    }
+
+    .nao-alterar{
+        color:red;
+        margin-left: 10%;
     }
 
     input:required:focus {
