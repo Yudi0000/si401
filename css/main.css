@@ -36,6 +36,10 @@ button {
 
 #tetrisCanvas {
     display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 canvas {
@@ -501,6 +505,7 @@ border:0 none;
     min-height: 700px;
     margin-left: 30px;
     position: relative;
+    text-align: center;
 }
 
 .prox-peca img{

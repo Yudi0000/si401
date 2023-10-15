@@ -1,5 +1,18 @@
-function play_game(ROWS, COLS) {
-    var PHYSICS_LOOP_INTERVAL = 1000 / 2; // 2 FPS
+function play_game(ROWS, COLS) {    
+    var remaining_points = 300
+    var can_remove = true
+
+    const points = document.getElementById('points')
+    const level = document.getElementById('level')
+    const lines = document.getElementById('lines')
+    const time = document.getElementById('time')
+
+    function clock() {
+        time.innerText = parseInt(time.innerText) + 1
+        setTimeout(clock, 1000)
+    }
+
+    var PHYSICS_LOOP_INTERVAL = 1000 / 2;
 
     let board = [];
     for (let i = 0; i < ROWS; i++) {
@@ -8,10 +21,10 @@ function play_game(ROWS, COLS) {
 
     const PIECES = [
         [
-            [1] // Especial
+            [1, 1, 1, 1] // Linha
         ],
         [
-            [1, 1, 1, 1] // Linha
+            [1] // Especial
         ],
         [
             [1, 1, 1],
@@ -41,7 +54,7 @@ function play_game(ROWS, COLS) {
             [1, 0, 1],
             [1, 1, 1] // U
         ]
-    ];
+    ]
 
     function newPiece() {
         const piece = PIECES[Math.floor(Math.random() * PIECES.length)];
@@ -79,8 +92,8 @@ function play_game(ROWS, COLS) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < ROWS; i++) {
             for (let j = 0; j < COLS; j++) {
-                if (board[i][j]) {
-                    ctx.fillStyle = '#000'; // Cor da célula preenchida
+                if (board[i][j] == 1) {
+                    ctx.fillStyle = '#000';
                     ctx.fillRect(j * 20, i * 20, 20, 20);
                     ctx.strokeRect(j * 20, i * 20, 20, 20);
                 }
@@ -89,7 +102,7 @@ function play_game(ROWS, COLS) {
     }
 
     function drawPiece() {
-        ctx.fillStyle = '#FF0000'; // Cor da peça
+        ctx.fillStyle = '#FF0000'
         for (let i = 0; i < currentPiece.piece.length; i++) {
             for (let j = 0; j < currentPiece.piece[i].length; j++) {
                 if (currentPiece.piece[i][j]) {
@@ -117,8 +130,10 @@ function play_game(ROWS, COLS) {
             currentPiece.y--;
             placePiece();
             currentPiece = newPiece();
+            can_remove = true
+            checkLines()
             if (collides(currentPiece.x, currentPiece.y, currentPiece.piece)) {
-                alert('Fim do jogo!'); // Fim do jogo
+                alert('Fim do jogo!')
             }
         }
     }
@@ -164,19 +179,63 @@ function play_game(ROWS, COLS) {
         }
     }
 
-    function checkLines() {
-        let linesToRemove = [];
-        for (let i = ROWS - 1; i >= 0; i--) {
-            if (board[i].every(cell => cell === 1)) {
-                linesToRemove.push(i);
+    function pullDownOneTimeFromLine(line) {
+        for (let i = line; i >= 0; i--) {
+            for (let j = 0; j < COLS; j++) {
+                if (board[i][j] === 0) {
+                    let x = i - 1
+                    if (x >= 0) {
+                        if (board[x][j] !== 0) {
+                            board[i][j] = board[x][j]
+                            board[x][j] = 0
+                        }
+                    }
+                }
             }
         }
-
-        linesToRemove.forEach(line => {
-            board.splice(line, 1);
-            board.unshift(new Array(COLS).fill(0));
-        });
     }
+
+    function needToRemoveLine(line) {
+        for (let i = 0; i < COLS; i++) {
+            if (board[line][i] === 0) {
+                return false
+            }
+        }
+        return true
+    }
+
+    function checkLines() {
+        if (can_remove) {
+
+            let linesToRemove = []
+            for (let i = 0; i < ROWS; i++) {
+                if (needToRemoveLine(i)) {
+                    linesToRemove.push(i)
+                }
+            }
+    
+            if (linesToRemove.length > 0) {
+                linesToRemove.forEach(line => {
+                    for (let i = 0; i < COLS ; i++) {
+                        board[line][i] = 0;
+                    }
+                    pullDownOneTimeFromLine(line)
+                    lines.innerText = parseInt(lines.innerText) + 1
+                })
+        
+                points.innerText = parseInt(points.innerText) + (10 * (linesToRemove.length * linesToRemove.length))
+        
+                remaining_points -= parseInt(points.innerText)
+        
+                if (remaining_points <= 0) {
+                    level.innerText = parseInt(level.innerText) + 1
+                    remaining_points += 300
+                }
+            }
+            can_remove = false
+        }
+    }
+    
 
     document.addEventListener('keydown', event => {
         switch (event.code) {
@@ -201,7 +260,6 @@ function play_game(ROWS, COLS) {
     }
 
     function gameLoop() {
-        checkLines()
         drawBoard()
         drawPiece()
         setTimeout(gameLoop, 1)
@@ -209,4 +267,5 @@ function play_game(ROWS, COLS) {
 
     gameLoop()
     physicsLoop()
+    clock()
 }
