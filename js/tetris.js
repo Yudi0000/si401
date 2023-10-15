@@ -94,6 +94,14 @@ function play_game(ROWS, COLS) {
             for (let j = 0; j < COLS; j++) {
                 if (board[i][j] == 1) {
                     ctx.fillStyle = '#000';
+                }
+                if (board[i][j] == 2) {
+                    ctx.fillStyle = '#000';
+                }
+                if (board[i][j] == 3) {
+                    ctx.fillStyle = '#000';
+                }
+                if (board[i][j] != 0) {
                     ctx.fillRect(j * 20, i * 20, 20, 20);
                     ctx.strokeRect(j * 20, i * 20, 20, 20);
                 }
