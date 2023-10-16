@@ -5,11 +5,24 @@ function play_game(ROWS, COLS) {
     const points = document.getElementById('points')
     const level = document.getElementById('level')
     const lines = document.getElementById('lines')
-    const time = document.getElementById('time')
+   
 
     function clock() {
-        time.innerText = parseInt(time.innerText) + 1
-        setTimeout(clock, 1000)
+        const timeElement = document.getElementById('time');
+        const currentTime = timeElement.innerText.split(':');
+        let minutes = parseInt(currentTime[0]);
+        let seconds = parseInt(currentTime[1]);
+    
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+        }
+    
+        const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        timeElement.innerText = formattedTime;
+    
+        setTimeout(clock, 1000);
     }
 
     var PHYSICS_LOOP_INTERVAL = 1000 / 2;
@@ -58,8 +71,10 @@ function play_game(ROWS, COLS) {
 
     function newPiece() {
         const piece = PIECES[Math.floor(Math.random() * PIECES.length)];
+        // Atribua um valor exclusivo a cada tipo de peça
+        const pieceValue = PIECES.indexOf(piece) + 2; // +2 para evitar valores 0 e 1
         return {
-            piece,
+            piece: piece.map(row => row.map(cell => cell * pieceValue)), // Multiplica a peça pelo valor
             x: Math.floor(COLS / 2) - Math.floor(piece[0].length / 2),
             y: 0
         };
@@ -92,16 +107,8 @@ function play_game(ROWS, COLS) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < ROWS; i++) {
             for (let j = 0; j < COLS; j++) {
-                if (board[i][j] == 1) {
-                    ctx.fillStyle = '#000';
-                }
-                if (board[i][j] == 2) {
-                    ctx.fillStyle = '#000';
-                }
-                if (board[i][j] == 3) {
-                    ctx.fillStyle = '#000';
-                }
                 if (board[i][j] != 0) {
+                    ctx.fillStyle = '#000000';
                     ctx.fillRect(j * 20, i * 20, 20, 20);
                     ctx.strokeRect(j * 20, i * 20, 20, 20);
                 }
@@ -109,11 +116,24 @@ function play_game(ROWS, COLS) {
         }
     }
 
+    const PIECE_COLORS = {
+        1: '#FFD700', // Dourado para peça unitária
+        2: '#FF0000', // Vermelho para a primeira peça
+        3: '#00FF00', // Verde para a segunda peça
+        4: '#0000FF', // Azul para a terceira peça
+        5: '#FFA500', // Laranja para a quarta peça
+        6: '#800080', // Roxo para a quinta peça
+        7: '#00FFFF', // Ciano para a sexta peça
+        8: '#FF00FF', // Magenta para a sétima peça
+        9: '#FFFF00', // Amarelo para a oitava peça
+    };
+    
+
     function drawPiece() {
-        ctx.fillStyle = '#FF0000'
         for (let i = 0; i < currentPiece.piece.length; i++) {
             for (let j = 0; j < currentPiece.piece[i].length; j++) {
                 if (currentPiece.piece[i][j]) {
+                    ctx.fillStyle = PIECE_COLORS[currentPiece.piece[i][j] > 1 ? currentPiece.piece[i][j] - 1 : 1];
                     ctx.fillRect((currentPiece.x + j) * 20, (currentPiece.y + i) * 20, 20, 20);
                     ctx.strokeRect((currentPiece.x + j) * 20, (currentPiece.y + i) * 20, 20, 20);
                 }
@@ -181,7 +201,7 @@ function play_game(ROWS, COLS) {
         for (let i = 0; i < currentPiece.piece.length; i++) {
             for (let j = 0; j < currentPiece.piece[i].length; j++) {
                 if (currentPiece.piece[i][j]) {
-                    board[currentPiece.y + i][currentPiece.x + j] = 1;
+                    board[currentPiece.y + i][currentPiece.x + j] = currentPiece.piece[i][j];
                 }
             }
         }
