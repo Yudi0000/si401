@@ -3,6 +3,8 @@ let currentPiece, nextPiece;
 let ctx;
 const canvas = document.getElementById('tetrisCanvas');
 ctx = canvas.getContext('2d'); // Inicialize ctx aqui
+let isMirrored = false;
+
 const PIECES = [
     [
         [1, 1, 1, 1] // Linha
@@ -162,6 +164,9 @@ function play_game(ROWS, COLS) {
             for (let j = 0; j < COLS; j++) {
                 if (board[i][j] != 0) {
                     ctx.fillStyle = '#000000';
+                }
+
+                if(board[i][j] != 0){
                     ctx.fillRect(j * 20, i * 20, 20, 20);
                     ctx.strokeRect(j * 20, i * 20, 20, 20);
                 }
@@ -191,6 +196,17 @@ function play_game(ROWS, COLS) {
             if (collides(currentPiece.x, currentPiece.y, currentPiece.piece)) {
                 alert('Fim do jogo!')
             }
+            
+            if (isMirrored) {
+                mirrorBoard();
+                isMirrored = false;
+            }
+        }
+    }
+
+    function mirrorBoard() {
+        for (let i = 0; i < ROWS; i++) {
+            board[i].reverse();
         }
     }
 
@@ -262,11 +278,13 @@ function play_game(ROWS, COLS) {
 
     function checkLines() {
         if (can_remove) {
-
             let linesToRemove = []
             for (let i = 0; i < ROWS; i++) {
                 if (needToRemoveLine(i)) {
                     linesToRemove.push(i)
+                    if (containsSpecialPiece(i)) {
+                        isMirrored = true; // Ativar o espelhamento
+                    }
                 }
             }
     
@@ -292,6 +310,15 @@ function play_game(ROWS, COLS) {
         }
     }
     
+    function containsSpecialPiece(line) {
+        for (let i = 0; i < COLS; i++) {
+            if (board[line][i] === 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     document.addEventListener('keydown', event => {
         switch (event.code) {

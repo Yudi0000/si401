@@ -836,6 +836,10 @@ border:0 none;
     margin-left: 10%;
 }
 
+#restartButton{
+    display:none;
+}
+
 input:required:focus {
     border: 2px solid red;
     background-color: rgba(243, 123, 123, 0.514);
